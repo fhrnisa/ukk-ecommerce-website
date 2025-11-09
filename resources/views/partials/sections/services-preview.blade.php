@@ -1,4 +1,4 @@
-<section class="py-16 px-8">
+<section class="py-16 px-8 md:px-32">
     <div class="max-w-6xl mx-auto">
         <h2 class="font-semibold text-2xl md:text-4xl text-center mb-8">Layanan Kami</h2>
 
@@ -36,7 +36,7 @@
 
     </div>
         <div class="text-center mt-8">
-        <a href="/layanan" class="inline-block bg-blue-600 text-white font-semibold text-base md:text-xl py-2 px-4 md:py-3 md:px-6 rounded-sm hover:bg-blue-700 transition duration-300">
+        <a href="{{ route('services.index') }}" class="inline-block bg-blue-600 text-white font-semibold text-base md:text-xl py-2 px-4 md:py-3 md:px-6 rounded-sm hover:bg-blue-700 transition duration-300">
             Lihat Selengkapnya
         </a>
         </div>

@@ -4,6 +4,8 @@
 
 @section('content')
 
+    @include('partials.global.navbar-main')
+
     @include('partials.global.search-overlay')
 
     @include('partials.sections.hero')

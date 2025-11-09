@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('tokonisas', function (Blueprint $table) {
             $table->id();
-            $table->string("nama_layanan");
-            $table->text("deskripsi_layanan");
-            $table->integer("harga_layanan");
+            $table->string('nama_layanan', 100);
+            $table->text('deskripsi_layanan');
+            $table->integer('harga_layanan');
             $table->timestamps();
             $table->softDeletes();
         });

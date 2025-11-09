@@ -1,4 +1,4 @@
-<div class="py-16 px-4 md:py-32 md:px-16">
+<section class="py-16 px-4 md:py-32 md:px-16">
     <div class="max-w-6xl mx-auto px-4">
         <h2 class="font-semibold text-2xl md:text-4xl text-center mb-6 md:mb-12">Kontak</h2>
         <div class="grid-row md:flex md:gap-20">
@@ -46,4 +46,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

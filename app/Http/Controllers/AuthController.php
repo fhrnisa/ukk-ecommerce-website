@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -11,9 +14,24 @@ class AuthController extends Controller
         return view('auth.signup');
     }
 
+    // REGISTER
     public function signup(Request $request)
     {
-        // proses simpan user
+        $request->validate([
+            'name'      => 'required|string|max:100',
+            'email'     => 'required|email|unique:users,email',
+            'password'  => 'required|min:6|confirmed',
+            'no_hp'     => 'nullable|string|max:20',
+        ]);
+
+        User::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password),
+            'no_hp'    => $request->no_hp,
+        ]);
+
+        return redirect()->route('login')->with('success', 'Pendaftaran berhasil! Silakan login.');
     }
 
      public function showLoginForm()
@@ -21,8 +39,31 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    // LOGIN
     public function login(Request $request)
     {
-        // proses simpan user
+        $credentials = $request->validate([
+           'email' => 'required|email',
+           'password' => 'required',
+        ]);
+
+        if(Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/')->with('succes', 'Login berhasil!');
+        }
+
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+            ])->onlyInput('email');
+    }
+
+    // LOGOUT
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('welcome')->with('success', 'Anda telah logout.');
     }
 }

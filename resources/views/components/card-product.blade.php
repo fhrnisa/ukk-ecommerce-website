@@ -6,7 +6,7 @@
     'terjual' => 0
     ])
 
-<div class="bg-white rounded-md border-1 border-gray-300 w-full hover:shadow-lg transition">
+<div class="bg-white rounded-md border-1 border-gray-300 w-full hover:shadow-xl transition">
     {{-- Gambar --}}
     <img src="{{ asset($image) }}" alt="{{$title}}" class="rounded-t-md"> 
 

@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tokonisas', function (Blueprint $table) {
-            $table->string('');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100);
+            $table->string('email', 191)->unique();
+            $table->string('password', 255);
+            $table->string('no_hp', 20)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tokonisas', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('users');
     }
 };

@@ -1,5 +1,4 @@
-<section id="tentang">
-    <div class="py-24 px-6 md:px-40">
+<section id="tentang" class="py-24 px-6 md:px-32">
         <div class="container mx-auto flex flex-col-reverse md:flex-row items-center">
             <div class="w-full">
                 <img src="{{ asset('images/toko-nisa.svg') }}" alt="Toko Nisa 2025" class="w-auto h-auto">
@@ -15,5 +14,4 @@
                 </p>
             </div>
         </div>
-    </div>
 </section>

@@ -10,8 +10,8 @@
 <body class="bg-gray-50 text-gray-900">
 
     <header class="fixed top-0 w-full">
-        {{-- Navbar --}}
-        @include('partials.global.navbar')
+        {{-- Navbar dinamis --}}
+        @yield('navbar')
     </header>
 
     {{-- Konten halaman --}}
