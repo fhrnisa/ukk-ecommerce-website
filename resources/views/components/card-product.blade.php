@@ -1,4 +1,5 @@
 @props([
+    'product' => null,
     'image' => '',
     'title' => '',
     'price' => null,
@@ -6,20 +7,21 @@
     'terjual' => 0
     ])
 
-<div class="bg-white rounded-md border-1 border-gray-300 w-full hover:shadow-xl transition">
-    {{-- Gambar --}}
+<a href="{{ $product ? route('products.show', $product->id) : '#' }}" 
+    class="bg-white rounded-md border-1 border-gray-300 w-full hover:shadow-xl transition">
+    <!-- Gambar -->
     <img src="{{ asset($image) }}" alt="{{$title}}" class="rounded-t-md"> 
 
     <div class="p-2 md:p-4">
-        {{-- Judul --}}
+        <!-- Judul -->
         <h3 class="text-sm md:text-xl font-normal">{{ $title }}</h3> 
 
-        {{-- Harga --}}
+        <!-- Harga -->
         @if($price)
             <p class="text-lg md:text-xl font-medium text-blue-600">Rp {{ number_format($price, 0, ',', '.') }}</p> 
         @endif
 
-        {{-- Rating --}}
+        <!-- Rating -->
         @if ($rating > 0)
         <div class="flex items-center text-yellow-500 text-xs md:text-base mb-2">
              ★ <span class="text-gray-600 ml-1">
@@ -30,4 +32,4 @@
         </div>
         @endif
     </div>
-</div>
+</a>

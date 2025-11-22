@@ -4,9 +4,9 @@
 
 @section('content')
 
-        @include('partials.global.navbar-products')
+@include('partials.global.navbar-products')
 
-<div class="px-6 py-22">
+<div class="px-6 md:px-20 py-22">
 
     <!-- Sort -->
     <div class="flex gap-3 justify-between items-center mb-4">
@@ -23,46 +23,20 @@
         </div>
     </div>
 
-    <!-- Card Produk -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-        <x-card-product 
-            image="images/nota-kontan-1ply.jpg"
-            title="Nota Kontan 1 Ply 50 Lembar | Gelatik Kembar"
-            price="4000"
-            rating="4.5"
-            reviews="55"
-            terjual="70"
-        />
-
-        <x-card-product 
-            image="images/nota-kontan-1ply.jpg"
-            title="Nota Kontan 1 Ply 50 Lembar | Gelatik Kembar"
-            price="4000"
-            rating="4.5"
-            reviews="55"
-            terjual="70"
-        />
-
-        <x-card-product 
-            image="images/nota-kontan-1ply.jpg"
-            title="Nota Kontan 1 Ply 50 Lembar | Gelatik Kembar"
-            price="4000"
-            rating="4.5"
-            reviews="55"
-            terjual="70"
-        />
-
-        <x-card-product 
-            image="images/nota-kontan-1ply.jpg"
-            title="Nota Kontan 1 Ply 50 Lembar | Gelatik Kembar"
-            price="4000"
-            rating="4.5"
-            reviews="55"
-            terjual="70"
-        />
-
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        @foreach ($products as $product)
+            <x-card-product
+                :product="$product"
+                :image="'storage/' . $product->image"
+                :title="$product->name"
+                :price="$product->price"
+                :rating="4.7"      {{-- sementara hardcode jika belum ada rating --}}
+                :terjual="21"      {{-- sementara hardcode jika belum ada data terjual --}}
+            />
+        @endforeach
     </div>
 
+    
 </div>
 
 @endsection

@@ -7,7 +7,7 @@
     <link rel="icon" type="img/png" href="{{asset('images/toko-nisa-logo.png')}}">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="flex flex-col min-h-screen bg-gray-50 text-gray-900">
 
     <header class="fixed top-0 w-full">
         {{-- Navbar dinamis --}}
@@ -15,7 +15,7 @@
     </header>
 
     {{-- Konten halaman --}}
-    <main class="m-0">
+    <main class="flex-grow m-0">
         @yield('content')
     </main>
 

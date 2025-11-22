@@ -36,6 +36,15 @@
         <!-- Pembagi -->
         <div class="hidden md:flex w-0.5 h-5 bg-gray-400/60"></div>
 
+        @auth
+            <!-- Jika user sudah login -->
+             <span>
+                <a href="{{ route('profile') }}">
+                    <img src="{{ 'icon/user-icon.svg' }}" alt="User" class="w-6 h-6">
+                </a>
+             </span>
+
+        @else 
         <!-- Tombol Masuk & Daftar -->
             <div class="hidden md:flex gap-2">
             <a href="{{ route('login') }}" class="inline-block bg-blue-50 text-blue-600 border-2 border-blue-600 text-base font-semibold md:py-1.5 md:px-4 rounded-sm hover:bg-blue-100 transition duration-300">
@@ -45,6 +54,7 @@
                 Daftar
             </a>
             </div>
+        @endauth
 
         <!-- Hamburger Menu (mobile) -->
         <button id="menu-btn" class="md:hidden"
