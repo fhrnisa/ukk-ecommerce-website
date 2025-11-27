@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Layanan')
+@section('title', 'Alat Tulis')
 
 @section('content')
 
-@include('partials.global.navbar-products')
+@include('partials.global.navbar-main')
 
 <div class="px-6 md:px-20 py-22">
 
@@ -23,12 +23,12 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         @foreach ($products as $product)
             <x-card-product
                 :product="$product"
                 :image="'storage/' . $product->image"
-                :title="$product->name"
+                :name="$product->name"
                 :price="$product->price"
                 :rating="4.7"      {{-- sementara hardcode jika belum ada rating --}}
                 :terjual="21"      {{-- sementara hardcode jika belum ada data terjual --}}

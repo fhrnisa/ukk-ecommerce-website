@@ -15,8 +15,8 @@
 
         <!-- Search di Desktop (langsung input bar) -->
         <div class="hidden md:flex border-1 border-gray-500 rounded-md px-3 py-2 items-center bg-[#F9FAFB]">
-            <form action="{{ route('search') }}" method="GET" class="flex items-center w-full">
-                <input type="text" name="q" placeholder="Cari produk atau layanan..." class="outline-none text-sm bg-transparent flex-1">
+            <form action="{{ route('products.search') }}" method="GET" class="flex items-center w-full">
+                <input type="text" name="keyword" placeholder="Cari produk atau layanan..." class="outline-none text-sm bg-transparent flex-1">
                 <button type="submit" class="ml-2 text-gray-600">
                     <img src="{{ asset('icon/search-icon.svg') }}" alt="Search" class="w-6 h-6 opacity-70">
                 </button>
@@ -29,7 +29,7 @@
         </button>
 
         <!-- Keranjang -->
-        <a href="#" class="">
+        <a href="{{ route('cart.index') }}" class="">
             <img src="{{ asset('icon/cart-icon.svg') }}" alt="Cart" class="w-6 h-6">
         </a>
 

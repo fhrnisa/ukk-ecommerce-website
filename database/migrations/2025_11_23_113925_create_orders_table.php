@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tokonisas', function (Blueprint $table) {
-            //
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('total_price');
+            $table->string('status')->default('pending');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tokonisas', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('orders');
     }
 };

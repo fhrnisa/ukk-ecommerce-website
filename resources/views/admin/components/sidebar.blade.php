@@ -6,23 +6,20 @@
 
         <a href="{{ route('admin.dashboard') }}"
             class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 {{ request()->is('admin/dashboard') ? 'bg-blue-100 font-semibold' : '' }}">
-            <span>🏠</span> Beranda
+            <span></span> Beranda
         </a>
 
         <p class="text-xs uppercase text-gray-400 mt-4">Main Menu</p>
 
-        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">📦 Manajemen Pesanan</a>
-        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">👥 Pelanggan</a>
-        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">🗂 Kategori</a>
-        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">💳 Transaksi</a>
-
+        <a href="{{ route('admin.orders.index') }}" class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">Manajemen Pesanan</a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">Pelanggan</a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">Transaksi</a>
         <p class="text-xs uppercase text-gray-400 mt-4">Produk</p>
-
-        <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">📋 Daftar Produk</a>
+        <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">Daftar Produk</a>
 
         <p class="text-xs uppercase text-gray-400 mt-4">Admin</p>
 
-        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">⚙️ Pengaturan</a>
+        <a class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50">Pengaturan</a>
 
     </nav>
 </aside>
