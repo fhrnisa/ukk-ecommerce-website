@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'My App')</title>
-    <link rel="icon" type="img/png" href="{{asset('images/toko-nisa-logo.png')}}">
+    <title>@yield('title', 'Toko Nisa')</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/toko-nisa-logo.png') }}">
     @vite('resources/css/app.css')
 </head>
 <body class="flex flex-col min-h-screen bg-gray-50 text-gray-900">
 
     <header class="fixed top-0 w-full">
-        {{-- Navbar dinamis --}}
+        <!-- Navbar -->
         @yield('navbar')
     </header>
 
-    {{-- Konten halaman --}}
+    <!-- Konten halaman -->
     <main class="flex-grow m-0">
         @yield('content')
     </main>
 
-    {{-- global script --}}
+    <!-- global script -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-    {{-- page specific --}}
     @stack('scripts')
 
-    {{-- Footer --}}
+    <!-- Footer -->
     @include('partials.global.footer')
 
     @vite('resources/js/app.js')

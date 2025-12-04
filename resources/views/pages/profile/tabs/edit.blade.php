@@ -28,7 +28,8 @@
         <div>
             <label class="block mb-1 font-medium">Nama Pengguna</label>
             <input 
-                type="text" 
+                type="text"
+                placeholder="{{ Auth::user()->name }}" 
                 class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
         </div>
 
@@ -38,6 +39,7 @@
                 <label class="block mb-1 font-medium">Email</label>
                 <input 
                     type="email" 
+                    placeholder="{{ Auth::user()->email }}" 
                     class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
             </div>
 
@@ -45,6 +47,7 @@
                 <label class="block mb-1 font-medium">Nomor Telepon</label>
                 <input 
                     type="text" 
+                    placeholder="{{ Auth::user()->no_hp }}" 
                     class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300">
             </div>
         </div>

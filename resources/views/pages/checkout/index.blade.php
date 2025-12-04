@@ -7,9 +7,9 @@
     <h2 class="text-2xl font-semibold mb-6">Checkout</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {{-- Rincian Pesanan --}}
+        
         <div class="md:col-span-2 bg-white shadow p-6 rounded-lg">
-            <x-monoicon-arrow-left /><a href="{{ route('welcome') }}"></a>
+            <a href="{{ route('welcome') }}"></a>
             <h3 class="font-semibold text-lg mb-4">Produk dalam Keranjang</h3>
 
             @foreach ($cartItems as $id => $item)
@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        {{-- Form Checkout --}}
+        <!-- Form Checkout -->
         <div class="bg-white shadow p-6 rounded-lg">
             <form action="{{ route('checkout.store') }}" method="POST">
                 @csrf
@@ -36,7 +36,8 @@
                     <option value="qris">QRIS</option>
                 </select>
 
-                <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                <button type="submit"
+                class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
                     Buat Pesanan
                 </button>
             </form>

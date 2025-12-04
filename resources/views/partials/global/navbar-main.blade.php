@@ -14,7 +14,7 @@
     <div class="flex items-center gap-4">
 
         <!-- Search di Desktop (langsung input bar) -->
-        <div class="hidden md:flex border-1 border-gray-500 rounded-md px-3 py-2 items-center bg-[#F9FAFB]">
+        <div class="hidden md:flex border-1 border-gray-400 rounded-4xl px-3 py-2 items-center bg-[#F9FAFB]">
             <form action="{{ route('products.search') }}" method="GET" class="flex items-center w-full">
                 <input type="text" name="keyword" placeholder="Cari produk atau layanan..." class="outline-none text-sm bg-transparent flex-1">
                 <button type="submit" class="ml-2 text-gray-600">

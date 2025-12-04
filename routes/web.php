@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductsController;
@@ -8,8 +9,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AdminTransactionController;
+use App\Http\Controllers\Admin\AdminSearchController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Models\Product;
@@ -53,8 +56,15 @@ Route::middleware(['auth'])
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
 
         // Orders
-        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
-        Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+        Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
+        Route::get('/orders/{id}', [AdminOrderController::class, 'show'])->name('orders.show');
+
+        Route::get('/search', [AdminSearchController::class, 'index'])->name('search');
+
+        Route::post('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.status');
+
+        // Transaction
+        Route::get('/transactions', [AdminTransactionController::class, 'index'])->name('transactions.index');
     });
 
 
@@ -80,19 +90,28 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
 });
 
 // ORDER SUCCESS
-Route::middleware('auth')->get('order/success/{order}', [CheckoutController::class, 'success'])->name('order.success');
+Route::middleware('auth')->get('order/success/{order}', [CheckoutController::class, 'success'])->name('orders.success');
 
 
 // PROFILE
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::get('/profile/notification', [ProfileController::class, 'notif'])->name('profile.notification');
-Route::get('/profile/order-history', [ProfileController::class, 'orders'])->name('profile.order-history');
+Route::get('/profile/notif', [ProfileController::class, 'notif'])->name('profile.notif');
+Route::get('/profile/orders', [ProfileController::class, 'orders'])->name('profile.orders');
 
 
 // EDIT PROFILE
 Route::get('/edit-profile', [ProfileController::class, 'show'])->name('edit-profile.show');
 
+// ORDER HISTORY
+Route::get('/profile/orders', [ProfileController::class, 'orders'])
+    ->name('profile.orders')
+    ->middleware('auth');
+
+Route::get('/orders/{order}', [ProfileController::class, 'showOrder'])
+    ->name('orders.show')
+    ->middleware('auth');

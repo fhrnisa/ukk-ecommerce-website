@@ -11,7 +11,7 @@
         <main class="flex-1 overflow-x-hidden overflow-y-auto p-6 ml-64 space-y-4">
             
             <div class="grid grid-cols-3 gap-6">
-                {{-- CARD 1: Total Penjualan --}}
+                <!-- Card: Total Penjualan -->
                 <div class="bg-white p-6 rounded-xl shadow">
                     <h3 class="text-sm font-medium text-gray-500 mb-2">Total Penjualan</h3>
                     <p class="text-xs text-gray-400 mb-4">7 hari terakhir</p>
@@ -23,7 +23,7 @@
                     <button class="mt-4 text-xs font-semibold text-blue-600 border border-blue-600 py-1 px-3 rounded-full hover:bg-blue-600 hover:text-white transition duration-150">Details</button>
                 </div>
 
-                {{-- CARD 2: Total Pesanan --}}
+                <!-- Card: Total Pesanan -->
                 <div class="bg-white p-6 rounded-xl shadow">
                     <h3 class="text-sm font-medium text-gray-500 mb-2">Total Pesanan</h3>
                     <p class="text-xs text-gray-400 mb-4">7 hari terakhir</p>
@@ -33,7 +33,7 @@
                     <button class="mt-4 text-xs font-semibold text-blue-600 border border-blue-600 py-1 px-3 rounded-full hover:bg-blue-600 hover:text-white transition duration-150">Details</button>
                 </div>
 
-                {{-- CARD 3: Dalam Proses & Dibatalkan --}}
+                <!-- Card: Dalam Proses & Dibatalkan -->
                 <div class="bg-white p-6 rounded-xl shadow flex space-x-6">
                     <div class="flex-1">
                         <h3 class="text-sm font-medium text-gray-500 mb-2">Dalam Proses & Dibatalkan</h3>
@@ -55,11 +55,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-7 gap-6">
                 
-                {{-- KOTAK TRANSAKSI (Ganti konten dummy di sini) --}}
                 <div class="col-span-1 md:col-span-4 bg-white p-6 rounded-xl shadow">
                     <div class="flex justify-between items-center mb-4">
                         <h2 class="text-lg font-semibold text-gray-800">Transaksi Terbaru</h2>
-                        {{-- Tombol untuk filter bisa diganti menjadi link ke halaman orders --}}
+
                         <a href="{{ route('admin.orders.index') }}" class="flex items-center text-sm font-medium text-gray-600 py-1 px-3 rounded-full bg-gray-100 hover:bg-gray-200">
                              Lihat Semua
                         </a>
@@ -152,10 +151,6 @@
                 <a href="{{ route('admin.orders.index') }}" class="flex items-center px-6 py-3 bg-white border border-gray-300 rounded-xl text-blue-600 font-semibold shadow-sm hover:bg-gray-50 transition duration-150">
                      Pesanan
                 </a>
-                
-                <button class="flex items-center px-6 py-3 bg-white border border-gray-300 rounded-xl text-blue-600 font-semibold shadow-sm hover:bg-gray-50 transition duration-150">
-                    Kategori
-                </button>
 
                 <button class="flex items-center px-6 py-3 bg-white border border-gray-300 rounded-xl text-blue-600 font-semibold shadow-sm hover:bg-gray-50 transition duration-150">
                     Pelanggan

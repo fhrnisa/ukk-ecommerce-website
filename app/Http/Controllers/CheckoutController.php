@@ -38,14 +38,12 @@ class CheckoutController extends Controller
                 $quantity = $item['qty'];
                 $price = $product->price;
                 
-                // Masukkan data ini ke array yang akan dikirim ke View
                 $cartItems[] = (object)[
                     'product_id' => $productId,
                     'quantity' => $quantity,
-                    // Kita gunakan objek 'product' untuk meniru struktur yang diinginkan View
                     'product' => (object)[
-                        'name' => $product->name,
-                        'price' => $price,
+                    'name' => $product->name,
+                    'price' => $price,
                     ]
                 ];
                 
@@ -59,6 +57,7 @@ class CheckoutController extends Controller
 
     public function store(Request $request)
     {
+        
         $request->validate([
             'payment_method' => 'required|string',
         ]);
@@ -105,6 +104,9 @@ class CheckoutController extends Controller
                     'price' => $product->price,
                     'quantity' => $item['qty'],
                 ]);
+
+                $product->stock -= $item['qty'];
+                $product->save();
             }
 
             // Kosongkan keranjang session
@@ -117,7 +119,8 @@ class CheckoutController extends Controller
 
             Notification::send($admins, new NewOrderNotification($order));
 
-            return redirect()->route('pages.orders.success', $order->id)
+            return redirect()
+                ->route('checkout.success', $order->id)
                 ->with('success', 'Pesanan berhasil dibuat!');
 
         } catch (\Throwable $th) {
@@ -129,6 +132,6 @@ class CheckoutController extends Controller
 
     public function success(Order $order)
     {
-        return view('order-success', compact('order'));
+        return view('pages.checkout.success', compact('order'));
     }
 }

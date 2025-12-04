@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -14,9 +15,9 @@ class NewOrderNotification extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct(Order $order)
     {
-        //
+        $this->order = $order;
     }
 
     /**
@@ -26,7 +27,7 @@ class NewOrderNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['database', 'mail'];
+        return ['database'];
     }
 
     /**

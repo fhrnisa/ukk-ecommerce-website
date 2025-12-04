@@ -45,7 +45,7 @@
         @auth
             <!-- Jika user sudah login -->
              <span>
-                <a href="{{ route('profile') }}">
+                <a href="{{ route('profile.index') }}">
                     <img src="{{ 'icon/user-icon.svg' }}" alt="User" class="w-6 h-6">
                 </a>
              </span>
