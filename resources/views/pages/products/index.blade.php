@@ -4,7 +4,7 @@
 
 @section('content')
 
-@include('partials.global.navbar-main')
+@include('partials.global.navbar')
 
 <div class="px-6 md:px-20 py-22">
 

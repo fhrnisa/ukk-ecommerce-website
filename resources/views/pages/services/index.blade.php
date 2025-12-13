@@ -1,60 +1,27 @@
 @extends('layouts.app')
 
-@section('title', 'Layanan')
-
 @section('content')
+<h2 class="text-xl font-semibold mb-4">Daftar Layanan</h2>
 
-        @include('partials.global.navbar-services')
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-        <div class="mt-24 mb-20 px-8 md:mt-32 md:mb-20 md:px-32">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <x-card-services 
-                        image="images/percetakan.jpg"
-                        title="Cetak Dokumen"
-                        desc="Cetak dokumen dalam ukuran A4, F4, HVS, pilihan warna hitam/putih"
-                        rating="4.9"
-                        reviews="55"
-                        price="500"
-                        unit="/ lembar"
+@foreach ($services as $service)
+    <div class="p-4 bg-white rounded shadow">
+        <img src="{{ asset('images/' . $service->gambar) }}" class="w-full h-40 object-cover rounded">
 
-                        :withButtons="true" 
-                        detailUrl="{{ route('services.show', 1) }}" 
-                        orderUrl="Detail"
-                        />
+        <h3 class="text-lg font-bold mt-2">{{ $service->nama }}</h3>
+        <p class="text-sm text-gray-600">{{ $service->deskripsi }}</p>
 
-                        <x-card-services 
-                        image="images/percetakan.jpg"
-                        title="Cetak Dokumen"
-                        desc="Cetak dokumen dalam ukuran A4, F4, HVS, pilihan warna hitam/putih"
-                        rating="4.9"
-                        reviews="55"
-                        price="500"
-                        unit="/ lembar"
+        <p class="mt-2 font-semibold text-blue-600">
+            Rp {{ number_format($service->harga) }}
+        </p>
 
-                        :withButtons="true" 
-                        detailUrl="{{ route('services.show', 1) }}" 
-                        orderUrl="Detail"
-                        />
+        <a href="{{ route('services.create', $service->id) }}" 
+           class="mt-3 inline-block bg-blue-600 text-white py-1 px-3 rounded">
+           Pesan Sekarang
+        </a>
+    </div>
+@endforeach
 
-                        <x-card-services 
-                        image="images/percetakan.jpg"
-                        title="Cetak Dokumen"
-                        desc="Cetak dokumen dalam ukuran A4, F4, HVS, pilihan warna hitam/putih"
-                        rating="4.9"
-                        reviews="55"
-                        price="500"
-                        unit="/ lembar"
-
-                        :withButtons="true" 
-                        detailUrl="{{ route('services.show', 1) }}" 
-                        orderUrl="Detail"
-                        />
-                </div>
-        </div>
-
+</div>
 @endsection
-
-
-@push('scripts')
-<script src="{{ asset('js/navbar.js') }}"></script>
-@endpush

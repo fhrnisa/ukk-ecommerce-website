@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('partials.global.navbar-main')
+@include('partials.global.navbar')
 
 <div class="container mx-auto mt-28">
     <h2 class="text-xl font-semibold mb-4">Hasil pencarian: "{{ $keyword }}"</h2>

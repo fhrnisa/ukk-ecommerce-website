@@ -4,7 +4,7 @@
 
 @section('content')
 
-    @include('partials.global.navbar-main')
+    @include('partials.global.navbar')
 
     @include('partials.global.search-overlay')
 

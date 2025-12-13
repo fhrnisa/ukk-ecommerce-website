@@ -2,36 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-
-    // Dummy data
-    private $services = [
-        1 => [
-            'id' => 1,
-            'title' => 'Cetak Dokumen',
-            'desc' => 'Cetak dokumen dalam ukuran A4, F4, HVS, pilihan warna hitam/putih',
-            'price' => 500,
-            'unit' => '/ lembar',
-        ],
-        2 => [
-            'id' => 2,
-            'title' => 'Pengetikan',
-            'desc' => 'Pengetikan dalam ukuran A4, F4, HVS, pilihan warna hitam/putih',
-            'price' => 3000,
-            'unit' => '/ halaman',
-        ],
-    ];
-
-
     public function index()
-    {
-        $services = $this->services;
+    {// Ambil semua layanan yang tersedia
+        $services = Service::where('is_available', true)->get();
+
         return view('pages.services.index', compact('services'));
     }
-
     public function show($id)
     {
         if (!array_key_exists($id, $this->services)) {
@@ -41,5 +22,10 @@ class ServiceController extends Controller
         $service = $this->services[$id];
         return view('pages.services.detail', compact('service'));
     }    
+
+    public function create()
+    {
+        return view('pages.services.create');
+    }
 }
 

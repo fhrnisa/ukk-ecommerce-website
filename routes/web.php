@@ -27,6 +27,9 @@ Route::get('/', function () {
     return view('pages.welcome', compact('products'));
 })->name('welcome');
 
+// SEARCH PRODUCTS
+Route::get('/search', [ProductsController::class, 'search'])->name('products.search');
+
 // SEARCH
 Route::get('/search', [ProductsController::class, 'search'])->name('products.search');
 
@@ -72,6 +75,11 @@ Route::middleware(['auth'])
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
 
+Route::get('/services/{service}/create', [ServiceController::class, 'create'])
+    ->name('services.create');
+
+Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
+
 // PRODUCTS
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 
@@ -96,13 +104,11 @@ Route::middleware('auth')->group(function () {
 // ORDER SUCCESS
 Route::middleware('auth')->get('order/success/{order}', [CheckoutController::class, 'success'])->name('orders.success');
 
-
 // PROFILE
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::get('/profile/notif', [ProfileController::class, 'notif'])->name('profile.notif');
 Route::get('/profile/orders', [ProfileController::class, 'orders'])->name('profile.orders');
-
 
 // EDIT PROFILE
 Route::get('/edit-profile', [ProfileController::class, 'show'])->name('edit-profile.show');

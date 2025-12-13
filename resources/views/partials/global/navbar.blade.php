@@ -5,7 +5,7 @@
 
     <!-- Desktop Menu -->
     <div class="hidden md:flex items-center space-x-10 text-base">
-        <a href="" class="text-gray-900 hover:text-blue-600">Tentang</a>
+        <a href="#" class="text-gray-900 hover:text-blue-600">Tentang</a>
         <a href="{{ route('services.index') }}" class="text-gray-900 hover:text-blue-600">Layanan</a>
         <a href="{{ route('products.index') }}" class="text-gray-900 hover:text-blue-600">Alat Tulis</a>
     </div>
