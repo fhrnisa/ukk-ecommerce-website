@@ -4,22 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-        'nama',
-        'deskripsi',
-        'harga',
-        'jenis',
+        'name',
+        'description',
+        'price',
+        'type',
         'options',
         'is_available',
-        'gambar'
+        'image'
     ];
 
     protected $casts = [
         'options' => 'array',
-        'harga' => 'decimal:2',
+        'price' => 'decimal:2',
         'is_available' => 'boolean',
     ];
 

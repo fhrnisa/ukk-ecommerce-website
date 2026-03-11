@@ -23,9 +23,10 @@
                     <input type="number" name="price" class="border w-full border-gray-300 rounded-md p-2" value="{{ $product->price }}">
                 </div>
 
-                <div>
-                    <label class="block">Stok</label>
-                    <input type="number" name="stock" class="border w-full border-gray-300 rounded-md p-2" value="{{ $product->stock }}">
+                <div class="mb-3">
+                    <label>Stok Saat Ini: <strong>{{ $product->stock }}</strong></label>
+                    <input type="number" name="add_stock" value="0" class="form-control" placeholder="Masukkan jumlah stok tambahan (misal: 5)">
+                    <small class="text-muted">Isi jika ada barang masuk baru.</small>
                 </div>
 
                 <div>

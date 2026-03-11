@@ -12,8 +12,12 @@
             <form action="/cart/add" method="POST">
                 @csrf
                 <input type="hidden" name="product_code" value="{{ $product->id }}">
-                <button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                <button class="px-5 py-2 border-1 border-blue-600 text-blue-600 rounded hover:bg-blue-100">
                     Tambah ke Keranjang
+                </button>
+                
+                <button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                    Beli Sekarang
                 </button>
             </form>
         </div>

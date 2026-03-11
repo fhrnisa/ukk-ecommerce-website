@@ -1,4 +1,4 @@
-<section class="bg-gradient-to-b from-blue-200 to-[#F9FAFB] pt-20 px-8 md:pt-24 md:px-20 w-full">
+<section class="bg-gradient-to-b from-[#F9FAFB] to-blue-200 pt-20 px-8 md:pt-24 md:px-20 md:pb-20 w-full">
     <div class="container mx-auto flex flex-col md:flex-row items-center px-3 md:px-12 md:gap-16">
         <div class="w-90 md:w-140 text-center md:text-left mb-10 md:mb-0">
             <h1 class="text-4xl lg:text-5xl font-semibold text-gray-900 mb-4 leading-tight">

@@ -10,7 +10,6 @@
 
     @include('partials.sections.hero')
 
-    @include('partials.sections.about')
 
     @include('partials.sections.services-preview')
 

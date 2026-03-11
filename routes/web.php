@@ -15,17 +15,12 @@ use App\Http\Controllers\Admin\AdminTransactionController;
 use App\Http\Controllers\Admin\AdminSearchController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\HomeController;
+use App\Models\Service;
 use App\Models\Product;
 
-if (!class_exists(AdminMiddleware::class)) {
-    die('ERROR DIAGNOSTIK: Kelas AdminMiddleware tidak ditemukan oleh Composer/Autoloader.');
-}
-
 // HALAMAN UTAMA (NORMAL USER HOME)
-Route::get('/', function () {
-    $products = Product::latest()->take(4)->get();
-    return view('pages.welcome', compact('products'));
-})->name('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 // SEARCH PRODUCTS
 Route::get('/search', [ProductsController::class, 'search'])->name('products.search');
@@ -71,6 +66,8 @@ Route::middleware(['auth'])
     });
 
 
+
+    
 // SERVICES
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');

@@ -1,27 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<h2 class="text-xl font-semibold mb-4">Daftar Layanan</h2>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @include('partials.global.navbar')
 
-@foreach ($services as $service)
-    <div class="p-4 bg-white rounded shadow">
-        <img src="{{ asset('images/' . $service->gambar) }}" class="w-full h-40 object-cover rounded">
-
-        <h3 class="text-lg font-bold mt-2">{{ $service->nama }}</h3>
-        <p class="text-sm text-gray-600">{{ $service->deskripsi }}</p>
-
-        <p class="mt-2 font-semibold text-blue-600">
-            Rp {{ number_format($service->harga) }}
-        </p>
-
-        <a href="{{ route('services.create', $service->id) }}" 
-           class="mt-3 inline-block bg-blue-600 text-white py-1 px-3 rounded">
-           Pesan Sekarang
-        </a>
+    <div class="container mx-auto md:mt-32 px-4">
+        <h2 class="font-semibold text-2xl md:text-4xl text-center mb-8">Layanan Kami</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @foreach($services as $service)
+            <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                <h3 class="text-xl font-semibold mb-2">{{ $service->name }}</h3>
+                <p class="text-gray-600 mb-4">{{ $service->description }}</p>
+                <div class="text-blue-600 font-bold text-lg">
+                    Rp {{ number_format($service->price, 0, ',', '.') }}
+                </div>
+                <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    Pesan Jasa
+                </a>
+            </div>
+            @endforeach
+        </div>
     </div>
-@endforeach
-
-</div>
 @endsection
